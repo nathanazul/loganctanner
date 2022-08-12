@@ -1,4 +1,4 @@
-body {
+.b {
   background-color: #181818;
 }
 
@@ -10,24 +10,28 @@ body {
 
 }
 
-ul {
+.menu {
 
   position: fixed;
-  right: 1%;
-  top: 1.15rem;
+  right: 5%;
+  top: 0.5rem;
   
   padding: 0;
-
+/*
   outline: rgba(128,128,128,0.22) .6rem solid;
   outline-offset: .2rem;
   border-radius: 1rem;
+*/
 }
 
-li {
+.array {
+  position: relative;
+  color: #fff;
+}
+
+.menu-item {
   font-size: 2.5rem;
   color: #fff;
-  
-  list-style-type: none;
 
   padding: .2rem;
   margin: 0;

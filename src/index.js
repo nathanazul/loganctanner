@@ -1,11 +1,15 @@
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 import React from 'react';
 import { Component } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import {useState} from 'react';
 
+import { Collapse } from 'react-bootstrap';
 
-function Tit() {
+
+function Title() {
   return (
     <h1 className='lct'>
       LoganCTanner
@@ -29,28 +33,75 @@ TODO
 * onClick(): show offset->expand down, revealing other options 
 ** (onClick(outsideMenu) || noAction(4sec)) ? closeMenu() : ''
 
+NOTES
+* collapse from reactstrap
+* need to have a single div w/ onClick() that toggles collapse showing 
+  pages[1,2]. onClick() for [1,2] swaps their position w/ [0].
 
 */
-function Menu() {
-  //const [isMenuExapnded, setIsMenuExpanded] = useState(false);
-  const pages = ["creator", "polymath", "gamer"];
 
-  const listPages = pages.map(
-    (page) => <li key={page} className={page}>{page}</li>
+class Menu extends Component {
+  constructor(props) {
+    super(props),
+  }
+}
+
+/*
+function Menu() {
+  const pages = ["creator", "polymath", "gamer"];
+  let p;
+
+  const listPages = (
+    p = pages.splice(1),
+    p.map( (page) => (
+        <div key={page} className={page + ' menu-item'} onClick={() => { select(page); toggle()}}>
+          {page}
+        </div>
+      )
+    )
   );
 
+  const [open, setOpen] = useState(false);
+
+  const toggle = () => setOpen(!open);
+
+  let pos;
+  const select = (props) => (
+    pos = pages.indexOf(props),
+    [pages[0],pages[pos]] = [pages[pos],pages[0]]
+  );
+
+  let o;
+  if(open === false) {
+    o = 'closed'
+  } else {
+    o = 'open'
+  }
+
   return(
-    <ul>{listPages}</ul>
+    <React.StrictMode>
+    <div className='menu'>
+      <div className={pages[0] + ' menu-item'} onClick={toggle}>{pages[0]}</div>
+      <Collapse in={open}>
+        <div>
+          {listPages}
+        </div>
+      </Collapse>
+    </div>
+    <div className='array'>{pages}</div>
+    </React.StrictMode>
   )
 
 }
+*/
+
 
 class Main extends Component {
 
   render() {
     return (
       <>
-      <Tit />
+      <Title />
       <Menu />
       </>
     );
@@ -61,6 +112,4 @@ class Main extends Component {
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-<Main />
-);
+root.render(<Main />);
