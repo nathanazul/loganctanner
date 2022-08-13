@@ -42,8 +42,67 @@ NOTES
 
 class Menu extends Component {
   constructor(props) {
-    super(props),
+    super(props);
+    this.state = {
+      pages: ['creator', 'polymath', 'gamer'],
+      selectedPage: 'creator',
+      isOpen: false,
+    };
   }
+
+  toggle = () => {
+    this.setState({isOpen: !isOpen})
+  }
+
+
+/*
+  selectPage(page) {
+    this.setState({ slectedPage: {page}})
+  }
+
+
+
+  listPages = (
+    () => {
+      let p;
+      p = this.state.pages;
+      for(let i = 0; i < p.length; i++) {
+        if(p[i] !== this.state.selectedPage) {
+          return (
+          <div 
+            className={p[i] + ' menu-item'}
+            onClick={
+              () => {selectPage(p[i]); toggle();}
+            }
+          >
+            {p[i]}
+          </div>
+          )
+        }
+      }
+    }
+  )
+*/
+
+  render() {
+
+    return(
+      <div className='menu'>
+      <div className='menu-item'>{this.state.selectedPage}</div>
+      </div>
+      /*
+      <div className='menu'>
+        <div className={ this.state.selectedPage}>
+          {this.state.selectedPage}
+        </div>
+        <Collapse in={this.state.isOpen}>
+          {this.listPages}
+        </Collapse>
+      </div>
+      */
+    )
+  }
+
 }
 
 /*
